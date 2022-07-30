@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma all --write \"pages/**/*.{tsx,js,json,scss}\""
+        "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma none --write \"pages/**/*.{tsx,js,json,scss}\""
     },
     "dependencies": {
         "next": "12.2.3",

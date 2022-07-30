@@ -14,8 +14,8 @@ const Home: NextPage = () => {
 			query: {
 				postId: 123,
 				ref: 'social',
-				isShow: 'yes',
-			},
+				isShow: 'yes'
+			}
 		});
 	};
 
