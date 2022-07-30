@@ -40,6 +40,10 @@ const Home: NextPage = () => {
 					<a style={{ paddingBottom: '10px' }}>Go to About</a>
 				</Link>
 
+				<Link href="/posts">
+					<a style={{ paddingBottom: '20px' }}>Go to Posts</a>
+				</Link>
+
 				<button onClick={HandleGoToDetailPage}>Go to the post detail</button>
 
 				<div className={styles.grid}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPropsContext, GetStaticPaths } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 import { Post } from '../../interfaces';
 import styles from '../../styles/Home.module.css';
@@ -14,6 +15,12 @@ interface Props {
 export default function PostDetail({ post }: Props) {
 	return (
 		<div className={styles.container}>
+			<Head>
+				<title>{post?.title}</title>
+				<meta name="description" content={post?.description} />
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+
 			<main className={styles.main}>
 				<h1 className={styles.title}>Post Detail</h1>
 
