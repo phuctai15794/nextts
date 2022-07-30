@@ -1,13 +1,8 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { Post } from '../../interfaces';
 
-export interface Post {
-	id: number;
-	title: string;
-	body: string;
-}
-
-export interface PostListProps {
-	posts: [];
+interface PostListProps {
+	posts: Post[];
 }
 
 export default function PostList({ posts }: PostListProps) {
@@ -35,11 +30,13 @@ export const getStaticProps: GetStaticProps<PostListProps> = async (context: Get
 
 	return {
 		props: {
-			posts: data.map((item: Post) => ({
-				id: item.id,
-				title: item.title,
-				body: item.body,
-			})),
+			posts: data.map(
+				(item: Post): Post => ({
+					id: item.id,
+					title: item.title,
+					body: item.body,
+				}),
+			),
 		},
 	};
 };
