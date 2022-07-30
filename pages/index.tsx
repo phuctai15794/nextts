@@ -14,8 +14,8 @@ const Home: NextPage = () => {
 			query: {
 				postId: 123,
 				ref: 'social',
-				isShow: 'yes'
-			}
+				isShow: 'yes',
+			},
 		});
 	};
 
@@ -35,6 +35,10 @@ const Home: NextPage = () => {
 				<p className={styles.description}>
 					Get started by editing <code className={styles.code}>pages/index.tsx</code>
 				</p>
+
+				<Link href="/about">
+					<a style={{ paddingBottom: '10px' }}>Go to About</a>
+				</Link>
 
 				<button onClick={HandleGoToDetailPage}>Go to the post detail</button>
 
@@ -62,12 +66,6 @@ const Home: NextPage = () => {
 						<p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
 					</a>
 				</div>
-
-				<div style={{ marginBottom: '1000px' }}></div>
-
-				<Link href="/about">
-					<a style={{ paddingBottom: '10px' }}>Go to About</a>
-				</Link>
 			</main>
 
 			<footer className={styles.footer}>
