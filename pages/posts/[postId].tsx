@@ -70,7 +70,8 @@ export const getStaticProps: GetStaticProps<Props> = async (context: GetStaticPr
 					title: detail.title,
 					description: detail.body
 				}
-			}
+			},
+			revalidate: 5
 		};
 	} else {
 		return {
