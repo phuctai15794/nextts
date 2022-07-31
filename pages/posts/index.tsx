@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Post } from '../../interfaces';
-import styles from '../../styles/Home.module.css';
+import { Post } from '@/interfaces';
+import styles from '@/styles/Home.module.css';
 
 interface Props {
 	posts: Post[];
@@ -18,7 +18,15 @@ export default function PostList({ posts }: Props) {
 			</Head>
 
 			<main className={styles.main}>
-				<h1 className={styles.title}>Post List</h1>
+				<h1 className={styles.title} style={{ marginBottom: '10px' }}>
+					Post List
+				</h1>
+
+				<Link href={`/`}>
+					<a>
+						<button style={{ cursor: 'pointer' }}>Back</button>
+					</a>
+				</Link>
 
 				{posts && (
 					<ul>
