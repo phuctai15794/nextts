@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 // import dynamic from 'next/dynamic';
+import { NextPageWithLayout } from 'models/common';
+import { MainLayout } from '@/components/layouts';
 import Header from '@/components/common/header';
 import styles from '@/styles/Home.module.css';
 
@@ -21,7 +23,7 @@ interface Product {
 	image: string;
 }
 
-export default function About(props: AboutProps) {
+const About: NextPageWithLayout = (props: AboutProps) => {
 	const router = useRouter();
 	const [product, setProduct] = useState([]);
 	const limitPage = router.query.limit || 4;
@@ -106,7 +108,11 @@ export default function About(props: AboutProps) {
 			</main>
 		</div>
 	);
-}
+};
+
+About.Layout = MainLayout;
+
+export default About;
 
 export const getStaticProps = async () => {
 	console.log(123);

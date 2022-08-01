@@ -1,11 +1,12 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { MainLayout } from '@/components/layouts';
+import { NextPageWithLayout } from 'models/common';
 import styles from '@/styles/Home.module.css';
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
 	const router = useRouter();
 
 	const HandleGoToDetailPage = () => {
@@ -87,5 +88,7 @@ const Home: NextPage = () => {
 		</div>
 	);
 };
+
+Home.Layout = MainLayout;
 
 export default Home;

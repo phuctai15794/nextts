@@ -20,11 +20,14 @@
         "incremental": true,
         "baseUrl": ".",
         "paths": {
-            "@/interfaces": [
-                "./interfaces"
-            ],
             "@/components/*": [
                 "./components/*"
+            ],
+            "@/components/layouts": [
+                "./components/layouts"
+            ],
+            "@/models": [
+                "./models"
             ],
             "@/styles/*": [
                 "./styles/*"
