@@ -7,15 +7,17 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma none --write \"pages/**/*.{tsx,js,json,scss}\""
+        "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma none --write \"pages/**/*.{tsx,ts,js,json,scss}\""
     },
     "dependencies": {
+        "http-proxy": "^1.18.1",
         "next": "12.2.3",
         "prettier": "^2.7.1",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
     "devDependencies": {
+        "@types/http-proxy": "^1.17.9",
         "@types/node": "18.6.2",
         "@types/react": "18.0.15",
         "@types/react-dom": "18.0.6",
