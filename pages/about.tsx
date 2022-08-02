@@ -115,7 +115,6 @@ About.Layout = MainLayout;
 export default About;
 
 export const getStaticProps = async () => {
-	console.log(123);
 	return {
 		props: {}
 	};
