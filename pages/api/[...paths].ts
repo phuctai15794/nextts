@@ -16,14 +16,14 @@ export const config = {
 	}
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<any>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
 	// Delete cookie
 	req.headers.cookie = '';
 
 	// Proxy
 	proxy.web(req, res, {
-		target: 'https://js-post-api.herokuapp.com',
+		target: process.env.API_URL,
 		changeOrigin: true,
-		selfHandleResponse: true
+		selfHandleResponse: false
 	});
 }
