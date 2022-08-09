@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma none --write \"pages/**/*.{tsx,ts,js,json,scss}\""
+        "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma none --write \"components/**/*.{tsx,ts,js,json,css,scss}\" \"models/**/*.{tsx,ts,js,json,css,scss}\" \"pages/**/*.{tsx,ts,js,json,css,scss}\" \"styles/**/*.{css,scss}\""
     },
     "dependencies": {
         "http-proxy": "^1.18.1",
