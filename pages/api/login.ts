@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import httpProxy, { ProxyResCallback } from 'http-proxy';
+import Cookies from 'cookies';
 
 type Data =
 	| {
@@ -21,16 +22,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 		res.status(404).json({ message: 'Method is not supported' });
 	}
 
-	return new Promise(() => {
+	return new Promise((resolve) => {
 		// Delete cookie
 		req.headers.cookie = '';
-
-		// Proxy web
-		proxy.web(req, res, {
-			target: process.env.API_URL,
-			changeOrigin: true,
-			selfHandleResponse: true
-		});
 
 		// Proxy handle response
 		const handleLoginResponse: ProxyResCallback = (proxyRes, req, res) => {
@@ -41,14 +35,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 			proxyRes.on('end', function () {
 				try {
 					const { accessToken, expiredAt } = JSON.parse(body);
+					const cookies = new Cookies(req, res, {
+						secure: process.env.NODE_ENV !== 'development'
+					});
+					cookies.set('access_token', accessToken, {
+						httpOnly: true,
+						sameSite: 'lax',
+						expires: new Date(expiredAt)
+					});
 					(res as NextApiResponse).status(200).json({ message: 'Login successfully' });
 				} catch (error) {
 					(res as NextApiResponse).status(500).json({ message: 'Something went gone' });
 				}
+
+				resolve(true);
 			});
 		};
 
 		// Proxy response
 		proxy.once('proxyRes', handleLoginResponse);
+
+		// Proxy web
+		proxy.web(req, res, {
+			target: process.env.API_URL,
+			changeOrigin: true,
+			selfHandleResponse: true
+		});
 	});
 }

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import httpProxy from 'http-proxy';
+import Cookies from 'cookies';
 
 type Data =
 	| {
@@ -18,6 +19,14 @@ export const config = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
 	return new Promise((resolve) => {
+		// Convert cookies to headers authorization
+		const cookies = new Cookies(req, res);
+		const accessToken = cookies.get('access_token');
+
+		if (accessToken) {
+			req.headers.authorization = `Bearer ${accessToken}`;
+		}
+
 		// Delete cookie
 		req.headers.cookie = '';
 
