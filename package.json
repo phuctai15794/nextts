@@ -10,6 +10,7 @@
         "beautiful": "prettier --print-width 120 --use-tabs --single-quote --tab-width 4 --trailing-comma none --write \"components/**/*.{tsx,ts,js,json,css,scss}\" \"models/**/*.{tsx,ts,js,json,css,scss}\" \"pages/**/*.{tsx,ts,js,json,css,scss}\" \"styles/**/*.{css,scss}\""
     },
     "dependencies": {
+        "axios": "^0.27.2",
         "cookies": "^0.8.0",
         "http-proxy": "^1.18.1",
         "next": "12.2.3",
@@ -18,6 +19,7 @@
         "react-dom": "18.2.0"
     },
     "devDependencies": {
+        "@types/axios": "^0.14.0",
         "@types/cookies": "^0.7.7",
         "@types/http-proxy": "^1.17.9",
         "@types/node": "18.6.2",

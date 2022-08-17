@@ -20,6 +20,9 @@
         "incremental": true,
         "baseUrl": ".",
         "paths": {
+            "@/api": [
+                "./api-client"
+            ],
             "@/components/*": [
                 "./components/*"
             ],
