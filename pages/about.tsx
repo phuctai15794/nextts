@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 // import dynamic from 'next/dynamic';
-import { NextPageWithLayout } from 'models/common';
+import { NextPageWithLayout } from 'models/layout';
 import { MainLayout } from '@/components/layouts';
 import Header from '@/components/common/header';
 import styles from '@/styles/Home.module.css';
